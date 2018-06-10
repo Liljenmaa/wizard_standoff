@@ -9,5 +9,7 @@ wizardlist.append(Wizard(100, 0))
 to either:
 
 wizardlist.append(Wizard(80, 0))
+
 or
+
 wizardlist.append(Wizard(60, 0))
