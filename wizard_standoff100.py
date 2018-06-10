@@ -32,6 +32,9 @@ class Wizard:
                 print("Wizard " + str(self.initiative) + " targets Wizard " + str(target) + "...")
                 return target
 
+            elif middle_wizard(wizardlist) == self.initiative:
+                target = strongest_wizard(wizardlist)
+                return target
             else:
                 print("Wizard " + str(self.initiative) + " misses purposefully!")
                 return None
@@ -64,7 +67,25 @@ def strongest_wizard(wizardlist):
         return wizardlist[1].initiative
     else:
         return wizardlist[2].initiative
-        
+
+def middle_wizard(wizardlist):
+    if wizardlist[0].chance > wizardlist[1].chance:
+        if wizardlist[2].chance > wizardlist[0].chance:
+            return wizardlist[0].initiative
+        else:
+            if wizardlist[1].chance > wizardlist[2].chance:
+                return wizardlist[1].initiative
+            else:
+                return wizardlist[2].initiative
+    else:
+        if wizardlist[2].chance > wizardlist[1].chance:
+            return wizardlist[1].initiative
+        else:
+            if wizardlist[0].chance > wizardlist[2].chance:
+                return wizardlist[0].initiative
+            else:
+                return wizardlist[2].initiative
+                
 def which_one_is_stronger(wizard1, wizard2):
     if wizard1.chance > wizard2.chance:
         return wizard1.initiative
